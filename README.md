@@ -22,3 +22,8 @@ Khi sử dụng Java Reflection để duyệt qua một class thì việc đầu
 - Methods
 - Fields
 - Annotations
+
+# Tạo đối tượng Class<>
+- Đối tượng kiểu Class được tạo ra bằng cách sử dụng phương thức static Class.forName(). Cách này thường được sử dụng khi chỉ biên được tên lớp lúc thực thi (runtime)
+- Trong trường hợp không tìm thấy lớp tương ứng, phương thức trên sẽ ném ra ngoại lệ ClassNotFoundException. Điều này có thể bất tiện vì bạn phải sử dụng try catch hoặc ném ngoại lệ này khỏi phương thức.
+- Khi bạn biết chính xác tên Lớp tại thời điểm biên dịch (combine), có thể sử dụng TenLop.class để tạo đối tượng kiểu Class. Cách này đảm bảo rằng lớp được sử dụng luôn luôn tồn tại và không có ngoại lệ nào xảy ra. Đối với các kiểu dữ liệu nguyên thủy như void, int, boolean, char,… bạn có thể dùng field TYPE để lấy được đối tượng Class tương ứng.
